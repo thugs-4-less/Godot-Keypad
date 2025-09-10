@@ -1,0 +1,319 @@
+[gd_scene load_steps=15 format=3 uid="uid://wf4w5v3cucjc"]
+
+[ext_resource type="Script" uid="uid://dobxat6pwx6ax" path="res://keypad.gd" id="1_0sp1t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_os0ty"]
+bg_color = Color(0.184314, 0.192157, 0.2, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sp1t"]
+bg_color = Color(0.627451, 0.858824, 0.862745, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="SystemFont" id="SystemFont_4swqm"]
+font_names = PackedStringArray("Pixel Operator 8")
+
+[sub_resource type="SystemFont" id="SystemFont_w41gr"]
+font_names = PackedStringArray("Pixel Operator 8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_os0ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sp1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4swqm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w41gr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4swqm"]
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w41gr"]
+bg_color = Color(0.0233718, 0.0233718, 0.0233718, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rcbr"]
+bg_color = Color(0.34902, 0.356863, 0.376471, 1)
+border_width_bottom = 10
+border_color = Color(0.127736, 0.127736, 0.127736, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c3sr"]
+bg_color = Color(0.701961, 0.270588, 0.278431, 1)
+border_width_bottom = 10
+border_color = Color(0.127736, 0.127736, 0.127736, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_updv8"]
+bg_color = Color(0.247059, 0.545098, 0.717647, 1)
+border_width_bottom = 10
+border_color = Color(0.127736, 0.127736, 0.127736, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Keypad" type="Control"]
+custom_minimum_size = Vector2(800, 1300)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -650.0
+offset_right = 400.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_0sp1t")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_os0ty")
+
+[node name="AllComponentsContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DisplayMargins" type="MarginContainer" parent="Background/AllComponentsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="DisplayArea" type="Panel" parent="Background/AllComponentsContainer/DisplayMargins"]
+custom_minimum_size = Vector2(200, 140)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0sp1t")
+
+[node name="TextMargins" type="MarginContainer" parent="Background/AllComponentsContainer/DisplayMargins/DisplayArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="DisplayText" type="Label" parent="Background/AllComponentsContainer/DisplayMargins/DisplayArea/TextMargins"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("SystemFont_4swqm")
+theme_override_font_sizes/font_size = 100
+
+[node name="ButtonMargins" type="MarginContainer" parent="Background/AllComponentsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/margin_top = 50
+
+[node name="AllButtons" type="GridContainer" parent="Background/AllComponentsContainer/ButtonMargins"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 25
+columns = 3
+
+[node name="1" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "1"
+
+[node name="2" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "2"
+
+[node name="3" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "3"
+
+[node name="4" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "4"
+
+[node name="5" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "5"
+
+[node name="6" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "6"
+
+[node name="7" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "7"
+
+[node name="8" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "8"
+
+[node name="9" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "9"
+
+[node name="CLR" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3c3sr")
+text = "CLR"
+
+[node name="0" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8rcbr")
+text = "0
+"
+
+[node name="OK" type="Button" parent="Background/AllComponentsContainer/ButtonMargins/AllButtons"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_w41gr")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_os0ty")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0sp1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4swqm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w41gr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4swqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w41gr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_updv8")
+text = "OK"
+
+[connection signal="pressed" from="Background/AllComponentsContainer/ButtonMargins/AllButtons/CLR" to="." method="_on_clr_pressed"]
+[connection signal="pressed" from="Background/AllComponentsContainer/ButtonMargins/AllButtons/OK" to="." method="_on_ok_pressed"]
